@@ -1,12 +1,10 @@
 import mouse
 import keyboard
 import time
-import pyautogui  # for screen size
+import pyautogui
 
-# --- Get screen resolution ---
 screen_width, screen_height = pyautogui.size()
 
-# Reference resolution
 REF_WIDTH = 1920
 REF_HEIGHT = 1080
 
@@ -61,12 +59,10 @@ def addingredients():
     time.sleep(0.4)
     click(1207, 879)
 
-# --- Global flags ---
 running = False
 superrunning = True
 count = 1
 
-# --- Keyboard event handlers ---
 def toggle_run(e=None):
     global running
     running = not running
@@ -77,12 +73,10 @@ def stop_program(e=None):
     superrunning = False
     print("Stopping program...")
 
-# Hook key events
 keyboard.on_press_key("s", toggle_run)
 keyboard.on_press_key("a", toggle_run)
 keyboard.on_press_key("esc", stop_program)
 
-# --- Main Loop ---
 while superrunning:
     if running:
         if count % 2 == 0:
